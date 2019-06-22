@@ -65,7 +65,7 @@ async def analyze(request):
 
 @app.route('/predict/<text>')
 async def predict(text):
-    return JSONResponse({'result': str(text)})
+    return text
 
 if __name__ == '__main__':
     if 'serve' in sys.argv:
