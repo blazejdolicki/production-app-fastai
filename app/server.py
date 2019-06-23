@@ -11,7 +11,7 @@ from starlette.staticfiles import StaticFiles
 from starlette.responses import PlainTextResponse
 
 # export_file_url = 'https://www.dropbox.com/s/6bgq8t6yextloqp/export.pkl?raw=1'
-export_file_url = 'https://drive.google.com/uc?export=download&id=13Y3qma9jYVuiPtsuoWTaSCJPewM15y8s'
+export_file_url = 'https://www.googleapis.com/drive/v3/files/13Y3qma9jYVuiPtsuoWTaSCJPewM15y8s?alt=media&key=AIzaSyCJpCGl5aZbpD7U0C7jrDklPlAus9e4Osc'
 # export_file_name = 'export.pkl'
 export_file_name = 'export_clas.pkl'
 
