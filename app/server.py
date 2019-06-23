@@ -72,7 +72,7 @@ async def analyze(request):
 def user(request):
     text = request.path_params['text']
     prediction = learn.predict(text)[0]
-    return PlainTextResponse('Your input text is: %s' % text)
+    return PlainTextResponse('Your input text is: %s' % prediction)
 
 if __name__ == '__main__':
     if 'serve' in sys.argv:
