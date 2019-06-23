@@ -16,8 +16,8 @@ export_file_url = 'https://www.googleapis.com/drive/v3/files/13Y3qma9jYVuiPtsuoW
 export_file_name = 'export_clas.pkl'
 
 classes = ['1','2','3','4','5']
-# path = Path(__file__).parent
-path = ''
+path = Path(__file__).parent
+# path = ''
 
 app = Starlette()
 app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_headers=['X-Requested-With', 'Content-Type'])
@@ -34,7 +34,7 @@ async def download_file(url, dest):
 
 
 async def setup_learner():
-    await download_file(export_file_url, path+ "/"+ export_file_name)
+    await download_file(export_file_url, path / export_file_name)
     try:
         learn = load_learner(path, export_file_name)
         return learn
