@@ -16,7 +16,8 @@ export_file_url = 'https://drive.google.com/uc?export=download&id=13Y3qma9jYVuiP
 export_file_name = 'export_clas.pkl'
 
 classes = ['1','2','3','4','5']
-path = Path(__file__).parent
+# path = Path(__file__).parent
+path = ''
 
 app = Starlette()
 app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_headers=['X-Requested-With', 'Content-Type'])
