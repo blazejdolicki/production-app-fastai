@@ -8,6 +8,7 @@ from starlette.applications import Starlette
 from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
+from starlette.responses import PlainTextResponse
 
 export_file_url = 'https://www.dropbox.com/s/6bgq8t6yextloqp/export.pkl?raw=1'
 export_file_name = 'export.pkl'
@@ -63,9 +64,12 @@ async def analyze(request):
     prediction = learn.predict(img)[0]
     return JSONResponse({'result': str(prediction)})
 
-@app.route('/predict/<text>')
-async def predict(text):
-    return text
+# @app.route('/predict/<text>')
+# async def predict(text):
+@app.route('/predict/{text}')
+def user(request):
+    text = request.path_params['text']
+    return PlainTextResponse('Your input text is: %s' % text)
 
 if __name__ == '__main__':
     if 'serve' in sys.argv:
