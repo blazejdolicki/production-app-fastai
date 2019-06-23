@@ -10,10 +10,12 @@ from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 from starlette.responses import PlainTextResponse
 
-export_file_url = 'https://www.dropbox.com/s/6bgq8t6yextloqp/export.pkl?raw=1'
-export_file_name = 'export.pkl'
+# export_file_url = 'https://www.dropbox.com/s/6bgq8t6yextloqp/export.pkl?raw=1'
+export_file_url = 'https://drive.google.com/uc?export=download&id=13Y3qma9jYVuiPtsuoWTaSCJPewM15y8s'
+# export_file_name = 'export.pkl'
+export_file_name = 'export_clas.pkl'
 
-classes = ['black', 'grizzly', 'teddys']
+classes = ['1','2','3','4','5']
 path = Path(__file__).parent
 
 app = Starlette()
@@ -69,6 +71,7 @@ async def analyze(request):
 @app.route('/predict/{text}')
 def user(request):
     text = request.path_params['text']
+    prediction = learn.predict(text)[0]
     return PlainTextResponse('Your input text is: %s' % text)
 
 if __name__ == '__main__':
